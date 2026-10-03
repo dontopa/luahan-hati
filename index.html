@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Luahan Hati Akhmal</title>
+<meta name="description" content="Stranger to stranger. Servis mendengar luahan, sesi malam 10PM–4AM. Bayaran seikhlas hati.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b1020;--bg2:#121a33;--card:rgba(255,255,255,.05);--line:rgba(255,255,255,.1);
+  --ink:#f1ece4;--mute:#a9b0c6;--moon:#ffcf7a;--rose:#ff8fa3;--wa:#25d366;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Plus Jakarta Sans",system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;line-height:1.15;margin:0}
+a{color:inherit}
+.wrap{max-width:1080px;margin:auto;padding:0 16px}
+section{padding:88px 0}
+.eyebrow{color:var(--moon);font-weight:700;letter-spacing:.14em;font-size:.78rem;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font:700 1rem "Plus Jakarta Sans";transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-moon{background:var(--moon);color:#1a1300;box-shadow:0 10px 30px -8px rgba(255,207,122,.6)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+:focus-visible{outline:3px solid var(--moon);outline-offset:3px}
+
+/* stars */
+.sky{position:fixed;inset:0;pointer-events:none;z-index:0}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;animation:tw 3s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15}50%{opacity:1}}
+main,header,footer{position:relative;z-index:1}
+
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;padding:100px 0 60px;
+  background:linear-gradient(180deg,rgba(11,16,32,.55),var(--bg) 95%),url("https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1600&q=70&auto=format&fit=crop") center/cover}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);margin:14px 0 18px}
+.hero h1 em{color:var(--moon);font-style:italic}
+.hero p.lead{font-size:1.15rem;color:var(--mute);max-width:34ch;margin:0 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(8px);padding:6px 14px;border-radius:999px;font-size:.85rem;color:var(--mute)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 0 var(--wa);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 8px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+.portrait{position:relative;justify-self:center;width:min(340px,80vw)}
+.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:200px 200px 28px 28px;border:1px solid var(--line);box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
+.moon{position:absolute;top:-28px;right:-18px;width:86px;height:86px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff6dc,var(--moon) 60%,#e0a84a);box-shadow:0 0 60px rgba(255,207,122,.55);animation:float 6s ease-in-out infinite}
+.bubble{position:absolute;background:#fff;color:#1b1b1b;padding:10px 14px;border-radius:18px;font-size:.88rem;font-weight:500;box-shadow:0 10px 30px rgba(0,0,0,.35);animation:float 5s ease-in-out infinite}
+.bubble.b1{left:-46px;top:30%;border-bottom-left-radius:4px}
+.bubble.b2{right:-30px;bottom:14%;border-bottom-right-radius:4px;background:var(--rose);color:#2a0a10;animation-delay:-2.5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-30px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;text-align:center;backdrop-filter:blur(10px)}
+.stat b{display:block;font:700 1.9rem Fraunces,serif;color:var(--moon)}
+.stat span{color:var(--mute);font-size:.88rem}
+
+/* topics */
+.head{max-width:620px;margin-bottom:40px}
+.head h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-top:10px}
+.head p{color:var(--mute)}
+.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.topic{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;transition:transform .3s,border-color .3s,background .3s}
+.topic:hover{transform:translateY(-6px) rotate(-.5deg);border-color:rgba(255,207,122,.5);background:rgba(255,207,122,.06)}
+.topic .ico{font-size:1.9rem}
+.topic h3{font-size:1.15rem;margin:10px 0 4px}
+.topic p{margin:0;color:var(--mute);font-size:.92rem}
+
+/* how */
+.how{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.chat{display:flex;flex-direction:column;gap:10px}
+.msg{max-width:85%;padding:12px 16px;border-radius:20px;font-size:.95rem}
+.msg.you{align-self:flex-end;background:var(--rose);color:#2a0a10;border-bottom-right-radius:4px}
+.msg.me{align-self:flex-start;background:#fff;color:#1b1b1b;border-bottom-left-radius:4px}
+.typing{align-self:flex-start;background:#fff;border-radius:20px;padding:14px 18px;display:flex;gap:5px}
+.typing i{width:7px;height:7px;border-radius:50%;background:#999;animation:bounce 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.promise{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.promise li{display:flex;gap:12px;align-items:flex-start}
+.promise li::before{content:"✓";flex:none;width:26px;height:26px;border-radius:50%;background:rgba(255,207,122,.15);color:var(--moon);display:grid;place-items:center;font-weight:700;font-size:.85rem}
+
+/* booking */
+.book{background:linear-gradient(180deg,var(--bg),rgba(11,16,32,.75) 30%,rgba(11,16,32,.85) 70%,var(--bg)),url("https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1600&q=70&auto=format&fit=crop") center/cover}
+.panel{background:rgba(18,26,51,.85);border:1px solid var(--line);border-radius:28px;padding:28px;backdrop-filter:blur(14px);display:grid;grid-template-columns:1.1fr .9fr;gap:32px}
+.step{font-weight:700;margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.step span{width:26px;height:26px;border-radius:50%;background:var(--moon);color:#1a1300;display:grid;place-items:center;font-size:.82rem}
+.cal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.cal-top b{font-family:Fraunces,serif;font-size:1.2rem}
+.cal-top button{background:var(--card);border:1px solid var(--line);color:var(--ink);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem}
+.cal-top button:disabled{opacity:.3;cursor:default}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center}
+.cal .dow{font-size:.75rem;color:var(--mute);font-weight:700;padding:4px 0}
+.cal button{aspect-ratio:1;border-radius:12px;border:1px solid transparent;background:var(--card);color:var(--ink);font:500 .95rem "Plus Jakarta Sans";cursor:pointer;transition:.2s}
+.cal button:hover:not(:disabled){border-color:var(--moon)}
+.cal button:disabled{background:transparent;color:rgba(255,255,255,.2);cursor:default}
+.cal button.on{background:var(--moon);color:#1a1300;font-weight:700;box-shadow:0 6px 20px -6px rgba(255,207,122,.7)}
+.cal button.today{border-color:rgba(255,255,255,.3)}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.slots button{padding:12px 6px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:500 .92rem "Plus Jakarta Sans";cursor:pointer;transition:.2s}
+.slots button small{display:block;color:var(--mute);font-size:.7rem}
+.slots button:hover:not(:disabled){border-color:var(--moon)}
+.slots button.on{background:var(--moon);color:#1a1300;border-color:var(--moon)}
+.slots button.on small{color:#4a3a10}
+.slots button:disabled{opacity:.3;cursor:default;text-decoration:line-through}
+.hint{color:var(--mute);font-size:.85rem;margin:0 0 12px}
+label{display:block;font-size:.85rem;font-weight:700;margin:12px 0 6px;color:var(--mute)}
+input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--ink);font:inherit}
+select option{background:var(--bg2)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.summary{margin:18px 0 0;padding:14px;border-radius:14px;background:rgba(255,207,122,.08);border:1px dashed rgba(255,207,122,.4);font-size:.92rem}
+.btn-wa{width:100%;justify-content:center;margin-top:16px;background:var(--wa);color:#04210f;box-shadow:0 10px 30px -8px rgba(37,211,102,.6)}
+.btn-wa:disabled{opacity:.4;cursor:not-allowed;transform:none}
+
+.note{margin-top:40px;padding:22px;border-radius:20px;border:1px solid rgba(255,143,163,.35);background:rgba(255,143,163,.06);color:var(--mute);font-size:.9rem}
+.note b{color:var(--rose)}
+footer{padding:40px 0 60px;text-align:center;color:var(--mute);font-size:.85rem}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+.hero .rv{transition-delay:calc(var(--d,0)*120ms)}
+
+@media (max-width:860px){
+  .hero-grid,.how,.panel{grid-template-columns:1fr}
+  .portrait{order:-1;width:min(260px,70vw)}
+  .bubble.b1{left:-20px}.bubble.b2{right:-12px}
+  .stats{grid-template-columns:repeat(2,1fr);margin-top:0}
+  section{padding:64px 0}
+  .panel{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="sky" id="sky" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill rv"><i class="dot"></i> Sesi malam · 10PM – 4AM</span>
+      <h1 class="rv" style="--d:1">Stranger to stranger.<br>Luah je, <em>saya dengar.</em></h1>
+      <p class="lead rv" style="--d:2">Servis mendengar luahan. Apa saja yang terbuku, cerita je. Tak di-judge, tak dibawa ke mana-mana.</p>
+      <div class="cta rv" style="--d:3">
+        <a href="#book" class="btn btn-moon">🌙 Book slot sekarang</a>
+        <a href="#how" class="btn btn-ghost">Macam mana?</a>
+      </div>
+    </div>
+    <div class="portrait rv" style="--d:2">
+      <div class="moon"></div>
+      <img src="akhmal.webp" alt="Akhmal, pendengar luahan">
+      <div class="bubble b1">Cakap situ, habis situ 🤐</div>
+      <div class="bubble b2">Bayaran seikhlas hati 🤣</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat rv"><b>2 jam</b><span>sesi paling lama</span></div>
+      <div class="stat rv"><b>100%</b><span>rahsia terjamin</span></div>
+      <div class="stat rv"><b>0</b><span>judgement</span></div>
+      <div class="stat rv"><b>Ikhlas</b><span>bayar ikut hati</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Apa saja luahan</span>
+        <h2>Ada benda yang menyesakkan dada?</h2>
+        <p>Sesuai untuk apa-apa yang awak rasa nak lepaskan. Contohnya:</p>
+      </div>
+      <div class="topics">
+        <div class="topic rv"><div class="ico">😮‍💨</div><h3>Stress & anxiety</h3><p>Kepala serabut, hati tak tenang.</p></div>
+        <div class="topic rv"><div class="ico">💔</div><h3>Boyfriend buat hal</h3><p>Nak bebel panjang pasal dia? Silakan.</p></div>
+        <div class="topic rv"><div class="ico">🏢</div><h3>Colleague perangai macam gampang</h3><p>Office politics, bos, kerja dilambakkan.</p></div>
+        <div class="topic rv"><div class="ico">✈️</div><h3>Bestie spoil mood masa travel</h3><p>Trip yang patutnya best tapi jadi drama.</p></div>
+        <div class="topic rv"><div class="ico">🏠</div><h3>Parents & kawan toksik</h3><p>Penat jaga hati semua orang.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="background:linear-gradient(180deg,transparent,var(--bg2),transparent)">
+    <div class="wrap how">
+      <div class="rv">
+        <span class="eyebrow">Macam mana sesi berjalan</span>
+        <h2 style="font-size:clamp(1.9rem,4vw,2.6rem);margin:10px 0 14px">Mendengar, mendengar dan mendengar.</h2>
+        <p style="color:var(--mute)">Kalau tak ada soalan, saya dengar dan sokong je. Kalau awak minta pendapat, saya bagi ikut logik saya, tapi keputusan tetap di tangan awak. Tujuan saya cuma satu: awak rasa lega.</p>
+        <ul class="promise">
+          <li>Berpengalaman dengar perbualan berjam-jam</li>
+          <li>Perbualan dirahsiakan. Takkan dibawa ke Threads.</li>
+          <li>Mahir bertutur dalam pelbagai loghat Malaysia</li>
+          <li>Awak takkan di-judge. No worries.</li>
+        </ul>
+      </div>
+      <div class="chat rv" aria-label="Contoh perbualan">
+        <div class="msg you">Agak-agak betul tak apa saya buat? 🥺</div>
+        <div class="msg me">Hmm, saya faham kenapa awak buat macam tu. Awak sendiri rasa macam mana?</div>
+        <div class="msg you">Entah, tapi lega sikit dapat cerita ni.</div>
+        <div class="msg me">Itu yang penting. Cerita la lagi, saya ada je ni 🌙</div>
+        <div class="typing"><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" class="book">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Tempah slot</span>
+        <h2>Pilih malam & masa awak.</h2>
+        <p>Siang saya kerja, jadi sesi bermula selepas 10 malam sampai 4 pagi. Setiap slot sejam.</p>
+      </div>
+
+      <form class="panel rv" id="f">
+        <div>
+          <p class="step"><span>1</span> Pilih malam</p>
+          <div class="cal-top">
+            <button type="button" id="prev" aria-label="Bulan sebelum">‹</button>
+            <b id="mon"></b>
+            <button type="button" id="next" aria-label="Bulan seterusnya">›</button>
+          </div>
+          <div class="cal" id="cal"></div>
+        </div>
+
+        <div>
+          <p class="step"><span>2</span> Pilih masa mula</p>
+          <p class="hint" id="night">Pilih tarikh dulu.</p>
+          <div class="slots" id="slots"></div>
+
+          <p class="step"><span>3</span> Sikit info</p>
+          <label for="nama">Nama panggilan</label>
+          <input id="nama" required maxlength="40" placeholder="Boleh guna nama samaran" autocomplete="nickname">
+          <div class="row">
+            <div><label for="jam">Durasi</label><select id="jam"></select></div>
+            <div><label for="cara">Cara sesi</label><select id="cara"><option>Call</option><option>Chat</option></select></div>
+          </div>
+          <label for="topik">Nak luah pasal apa? (pilihan)</label>
+          <textarea id="topik" rows="2" maxlength="300" placeholder="Contoh: kerja, boyfriend, nak cerita je"></textarea>
+
+          <div class="summary" id="sum">Belum pilih slot.</div>
+          <button class="btn btn-wa" id="go" disabled>💬 Hantar tempahan ke WhatsApp</button>
+        </div>
+      </form>
+
+      <div class="note rv">
+        <b>Nota:</b> Saya pendengar, bukan kaunselor. Untuk isu serius seperti krisis rumah tangga, masalah kesihatan mental atau konflik yang rumit, sila dapatkan bantuan pihak bertauliah (psikiatri atau kaunselor berdaftar). Perlukan bantuan segera? <b>Talian HEAL 15555</b> · <b>Befrienders KL 03-7627 2929</b>.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Stranger to stranger 🌙 · <a href="https://www.threads.com/@akhmal.hm" target="_blank" rel="noopener">@akhmal.hm</a> di Threads</footer>
+
+<script>
+const WA = '60XXXXXXXXX'; // TODO: nombor WhatsApp Akhmal (format 60123456789)
+const SLOTS = [22, 23, 0, 1, 2, 3];   // jam mula; sesi tamat 4 pagi
+const DAYS_AHEAD = 30;
+const $ = id => document.getElementById(id);
+const BULAN = ['Januari','Februari','Mac','April','Mei','Jun','Julai','Ogos','September','Oktober','November','Disember'];
+const HARI = ['Ahad','Isnin','Selasa','Rabu','Khamis','Jumaat','Sabtu'];
+const fmtD = d => `${HARI[d.getDay()]}, ${d.getDate()} ${BULAN[d.getMonth()]}`;
+const fmtH = h => `${h % 12 || 12}:00 ${h >= 12 ? 'malam' : 'pagi'}`;
+
+// "malam" = tarikh sesi bermula; slot lepas tengah malam jatuh hari esok
+const slotTime = (night, h) => { const t = new Date(night); t.setDate(t.getDate() + (h < 12)); t.setHours(h, 0, 0, 0); return t; };
+
+const today = new Date(); today.setHours(0, 0, 0, 0);
+// lepas tengah malam sebelum 4 pagi, malam semalam masih berjalan
+const first = new Date(today); if (new Date().getHours() < 4) first.setDate(first.getDate() - 1);
+const last = new Date(today); last.setDate(last.getDate() + DAYS_AHEAD);
+let view = new Date(first.getFullYear(), first.getMonth(), 1), night = null, hour = null;
+
+const hasSlot = d => SLOTS.some(h => slotTime(d, h) > new Date());
+
+function drawCal() {
+  $('mon').textContent = `${BULAN[view.getMonth()]} ${view.getFullYear()}`;
+  $('prev').disabled = view <= new Date(first.getFullYear(), first.getMonth(), 1);
+  $('next').disabled = new Date(view.getFullYear(), view.getMonth() + 1, 1) > last;
+  const cal = $('cal'); cal.innerHTML = '';
+  ['Ah','Is','Se','Ra','Kh','Ju','Sa'].forEach(d => cal.insertAdjacentHTML('beforeend', `<div class="dow">${d}</div>`));
+  for (let i = 0; i < view.getDay(); i++) cal.append(document.createElement('span'));
+  const dim = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+  for (let n = 1; n <= dim; n++) {
+    const d = new Date(view.getFullYear(), view.getMonth(), n), b = document.createElement('button');
+    b.type = 'button'; b.textContent = n; b.setAttribute('aria-label', fmtD(d));
+    b.disabled = d < first || d > last || !hasSlot(d);
+    if (+d === +today) b.classList.add('today');
+    if (night && +d === +night) b.classList.add('on');
+    b.onclick = () => { night = d; hour = null; drawCal(); drawSlots(); };
+    cal.append(b);
+  }
+}
+
+function drawSlots() {
+  $('night').textContent = `Malam ${fmtD(night)}`;
+  $('slots').innerHTML = '';
+  SLOTS.forEach(h => {
+    const b = document.createElement('button'), t = slotTime(night, h);
+    b.type = 'button'; b.innerHTML = `${fmtH(h)}<small>${h < 12 ? t.getDate() + ' ' + BULAN[t.getMonth()].slice(0, 3) : '&nbsp;'}</small>`;
+    b.disabled = t <= new Date();
+    if (h === hour) b.classList.add('on');
+    b.onclick = () => { hour = h; drawSlots(); };
+    $('slots').append(b);
+  });
+  drawJam();
+}
+
+function drawJam() {
+  const left = hour === null ? 3 : (4 - hour + 24) % 24;   // jam berbaki sampai 4 pagi
+  const keep = +$('jam').value || 1;
+  $('jam').innerHTML = [1, 2, 3].filter(j => j <= left).map(j => `<option value="${j}">${j} jam</option>`).join('');
+  $('jam').value = Math.min(keep, left);
+  summary();
+}
+
+function summary() {
+  const ok = night && hour !== null;
+  $('go').disabled = !ok;
+  if (!ok) return $('sum').textContent = night ? 'Pilih masa mula.' : 'Belum pilih slot.';
+  const j = +$('jam').value, end = (hour + j) % 24;
+  $('sum').innerHTML = `🌙 <b>Malam ${fmtD(night)}</b><br>🕙 ${fmtH(hour)} – ${fmtH(end)} (${j} jam) · ${$('cara').value}`;
+}
+
+$('prev').onclick = () => { view.setMonth(view.getMonth() - 1); drawCal(); };
+$('next').onclick = () => { view.setMonth(view.getMonth() + 1); drawCal(); };
+$('jam').onchange = $('cara').onchange = summary;
+
+$('f').onsubmit = e => {
+  e.preventDefault();
+  if (!night || hour === null) return;
+  const j = +$('jam').value, topik = $('topik').value.trim();
+  const msg = `Hai Akhmal 🌙 saya nak book slot luahan.
+Nama: ${$('nama').value.trim()}
+Malam: ${fmtD(night)}
+Masa: ${fmtH(hour)} – ${fmtH((hour + j) % 24)} (${j} jam)
+Cara: ${$('cara').value}` + (topik ? `\nTopik: ${topik}` : '');
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+};
+
+drawCal(); drawJam();
+
+// bintang
+const sky = $('sky');
+for (let i = 0; i < 90; i++) {
+  const s = document.createElement('i'); s.className = 'star';
+  s.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation-delay:${Math.random() * 3}s;opacity:.3`;
+  if (Math.random() > .85) s.style.width = s.style.height = '3px';
+  sky.append(s);
+}
+
+// reveal bila scroll
+const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && (e.target.classList.add('in'), io.unobserve(e.target))), { threshold: .15 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
